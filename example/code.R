@@ -5,12 +5,6 @@ generate_data = function(){
   )
 }
 
-save_column_means = function(dataset, rep){
-  out = colMeans(dataset)
-  saveRDS(out, paste0("column_means", rep, ".rds"))
-}
-
-my_plot = function(...){
-  column_means = do.call(rbind, lapply(list(...), readRDS))
-  plot(y ~ x, data = column_means)
+my_plot = function(column_means){
+  plot(y ~ x, data = do.call(rbind, column_means))
 }
