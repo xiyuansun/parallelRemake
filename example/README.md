@@ -90,9 +90,9 @@ fields = list(
 write_yaml(fields, "my_plot.yml")
 ```
 
-Above, there are two utility functions of note.
+Above, there are two utility functions useful for the user.
 
-1. `remember` reloads one or more objects from the hidden [`remake`](https://github.com/richfitz/remake) cache. For example, `remember(dataset1)` returns the object `dataset1` generated previously, and `remember(dataset1, "dataset2")` will return a list containing objects `dataset1` and `dataset2`. If you use `remember` for a command in a [`remake`](https://github.com/richfitz/remake)/[YAML](http://yaml.org/) file, be sure that the return object is not the same name as any of the  arguments, as this will trigger unnecessary rebuilds.
+1. `remember` reloads one or more objects from the hidden [`remake`](https://github.com/richfitz/remake) cache. This is particularly useful if you've stopped in the middle of a workflow and you want to check your functions in `code.R`. For example, `remember(dataset1)` returns the object `dataset1` generated previously, and `remember(dataset1, "dataset2")` will return a list containing objects `dataset1` and `dataset2`. If you use `remember` for a command in a [`remake`](https://github.com/richfitz/remake)/[YAML](http://yaml.org/) file, be sure that the return object is not the same name as any of the  arguments, as this will trigger unnecessary rebuilds.
 2. `strings` takes general R expressions and converts them into character vectors. Try `strings(one = readRDS("mse.rds"), two = y <- x + 1)`.
 
 Next, I organize the workflow steps (i.e., [YAML](http://yaml.org/) files) into parallelizable stages of the workflow. Within each stage, the steps can be run in separate parallel processes. 
