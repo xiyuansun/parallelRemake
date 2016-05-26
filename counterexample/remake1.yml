@@ -1,0 +1,14 @@
+packages: storr
+
+sources:
+  - code.R
+
+targets:
+  all:
+    depends: data_save
+
+  data_save:
+    command: my_set(I("data"), data)
+
+  data:
+    command: download_data()

@@ -1,0 +1,16 @@
+packages: storr
+
+sources:
+  - code.R
+
+targets:
+  all:
+    depends: plot.pdf
+
+  plot.pdf:
+    command: myplot(data2)
+    plot: true
+
+  data2:
+    command: my_get(I("data"))
+

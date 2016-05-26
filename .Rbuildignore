@@ -4,6 +4,7 @@
 .Rapp.history
 .Rbuildignore
 .Rhistory
+counterexample
 example
 Rbuildignore
 README.md
